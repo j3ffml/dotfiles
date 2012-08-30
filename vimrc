@@ -2,12 +2,6 @@
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
-" TODO: this may not be in the correct place. It is intended to allow overriding <Leader>.
-" source ~/.vimrc.before if it exists.
-if filereadable(expand("~/.vimrc.before"))
-  source ~/.vimrc.before
-endif
-
 " =============== Pathogen Initialization ===============
 " This loads all the plugins in ~/.vim/bundle
 " Use tpope's pathogen plugin to manage all other plugins
@@ -17,7 +11,8 @@ endif
   call pathogen#infect()
 
 " ===================== ctrlp Config ====================
-let ctrlp_working_path_mode = 0
+let ctrlp_working_path_mode = 'rc'
+let g:ctrlp_custom_ignore = '\v[\/](\.git|\.hg|\.svn)$'
 
 " ================ General Config ====================
 
@@ -46,7 +41,7 @@ syntax on
 " ================ Search Settings  =================
 
 set incsearch		"Find the next match as we type the search
-set hlsearch		 "Hilight searches by default
+set hlsearch		 "Highlight searches by default
 set viminfo='100,f1  "Save up to 100 marks, enable capital marks
 
 " ================ Turn Off Swap Files ==============
@@ -77,9 +72,6 @@ set tabstop=4
 filetype plugin on
 filetype indent on
 
-" Display tabs and trailing spaces visually
-set list listchars=tab:\ \ ,trail:`
-
 set nowrap	   "Don't wrap lines
 set linebreak	"Wrap lines at convenient points
 
@@ -95,8 +87,6 @@ set wildmenu				"enable ctrl-n and ctrl-p to scroll thru matches
 set wildignore=*.o,*.obj,*~ "stuff to ignore when tab completing
 set wildignore+=*vim/backups*
 
-"
-
 " ================ Scrolling ========================
 
 set scrolloff=8		 "Start scrolling when we're 8 lines away from margins
@@ -108,4 +98,14 @@ set sidescroll=1
 "search/replace word under cursor
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
 
-color desert
+" set colorscheme before highlight settings
+colorscheme desert
+
+" trailing whitespace highlighting
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
+
