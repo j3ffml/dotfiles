@@ -34,3 +34,9 @@ alias ll='ls -l'
 alias la='ls -A'
 alias df='df -h'
 alias du='du -h'
+
+# load aliases
+#TODO
+if [ -e "$HOME/.bash_aliases" ]; then
+    . "$HOME/.bash_aliases"
+fi
