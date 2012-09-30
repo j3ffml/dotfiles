@@ -40,3 +40,10 @@ alias du='du -h'
 if [ -e "$HOME/.bash_aliases" ]; then
     . "$HOME/.bash_aliases"
 fi
+
+# load machine-specific settings
+if [ -e "$HOME/.bash_local" ]; then
+    . "$HOME/.bash_local"
+fi
+
+
