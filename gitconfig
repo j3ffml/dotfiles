@@ -5,3 +5,6 @@
 	excludesfile = /home/jeff/.gitignore_global
 [color]
 	ui = true
+[alias]
+    lc = log origin/master..
+    pull = pull --rebase
