@@ -6,5 +6,7 @@
 [color]
 	ui = true
 [alias]
-    lc = log origin/master..
+    logn = log --no-merges
+    lo = log origin/master..
+    lu = log upstream/master..
     pull = pull --rebase

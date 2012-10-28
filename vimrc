@@ -61,12 +61,24 @@ endif
 
 " ================ Indentation ======================
 
+function! ToggleIndent()
+  if &shiftwidth == 2
+    set shiftwidth=4
+    set softtabstop=4
+  else
+    set shiftwidth=2
+    set shiftwidth=2
+  endif
+endfunction
+
+com CI call ToggleIndent()
+
 set autoindent
 set smartindent
 set smarttab
 set expandtab
-set shiftwidth=4
-set softtabstop=4
+set shiftwidth=2
+set softtabstop=2
 set tabstop=4
 
 filetype plugin on
