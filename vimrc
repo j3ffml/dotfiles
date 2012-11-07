@@ -36,7 +36,7 @@ imap jk <Esc>
 set hidden
 
 "turn on syntax highlighting
-syntax on
+syntax enable
 
 " ================ Search Settings  =================
 
@@ -111,7 +111,9 @@ set sidescroll=1
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
 
 " set colorscheme before highlight settings
-colorscheme desert
+"
+set background=dark
+colorscheme solarized
 
 " trailing whitespace highlighting
 highlight ExtraWhitespace ctermbg=red guibg=red
