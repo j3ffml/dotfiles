@@ -1,0 +1,34 @@
+startup_message off
+
+# Startup Settings
+split -v
+screen
+focus
+screen
+
+vbell off
+vbell_msg ""
+defscrollback 1024
+nethack on
+
+# Resizing binds
+bind = resize =
+bind + resize +1
+bind - resize -1
+bind _ resize max
+
+# Bind F12 (NOT F2) to next screen window
+bindkey -k F2 next
+
+# Bind space to window list
+bind ' ' windowlist -b
+
+# Reduce timeout for better detection of escape key
+maptimeout 3
+
+# Shell Title
+shelltitle "% |zsh"
+
+# Window list at the bottom.
+hardstatus alwayslastline
+hardstatus string "%-w%{= BW}%50>%n %t%{-}%+w%<"}

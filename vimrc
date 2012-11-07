@@ -14,6 +14,7 @@ set nocompatible
 let ctrlp_working_path_mode = 'rc'
 let g:ctrlp_custom_ignore = '\v[\/](\.git|\.hg|\.svn)$'
 
+let g:Powerline_symbols = 'fancy'
 " ================ General Config ====================
 
 set number						"Line numbers are good
