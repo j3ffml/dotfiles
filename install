@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# clone other stuff
+git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+
 CONF_LIST=`find . -maxdepth 1 -not -name "install" -not -name ".*" -printf "%f\n"`
 
 for CONF in $CONF_LIST; do

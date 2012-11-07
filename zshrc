@@ -13,35 +13,19 @@ source $ZSH/oh-my-zsh.sh
 export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
 
 # command aliases
-alias ..='cd ..' 
-alias cd..='cd ..' 
-alias ...='cd ...'
-alias cd...='cd ...'
-alias agi='sudo apt-get install'
-alias agr='sudo apt-get remove'
-alias agu='sudo apt-get update'
 alias ls='ls --color'
-alias ll='ls -l --color' 
-alias la='ls -a --color' 
-alias q='exit'
-alias c='clear'
+alias ll='ls -l'
+alias la='ls -A'
+alias df='df -h'
+alias du='du -h'
+alias ack='ack-grep'
 
-# application aliases
-alias say='espeak'
+# load additional aliases
+#TODO
+if [ -e "$HOME/.bash_aliases" ]; then
+    . "$HOME/.bash_aliases"
+fi
 
-# path aliases
-alias dropbox='cd ~/Dropbox'
-alias uw='dropbox && cd UW' 
-alias cse='uw && cd CSE'
-alias ai='cse && cd 473'
-alias hci='cse && cd 440'
-alias vimrc='vim ~/.vimrc'
-alias bashrc='vim ~/.bashrc'
-alias zshrc='vim ~/.zshrc'
-alias screenrc='vim ~/.screenrc'
-
-# ssh aliases
-alias attu='ssh -X rishi@attu.cs.washington.edu'
 
 # options
 setopt correctall
