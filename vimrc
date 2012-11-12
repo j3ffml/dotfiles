@@ -113,6 +113,7 @@ nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
 
 " set colorscheme before highlight settings
 "
+set t_Co=16
 set background=dark
 colorscheme solarized
 
