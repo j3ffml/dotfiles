@@ -74,6 +74,8 @@ endfunction
 
 com CI call ToggleIndent()
 
+com Trail :%s/\s\+$//g
+
 set autoindent
 set smartindent
 set smarttab
