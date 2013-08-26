@@ -12,3 +12,6 @@ for CONF in $CONF_LIST; do
         ln -sv $SRC $DEST
     fi
 done
+
+# move the bloody buttons back (ubuntu)
+gconftool --set --type string /apps/metacity/general/button_layout :minimize,maximize,close
