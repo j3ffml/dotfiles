@@ -10,3 +10,5 @@
     lo = log origin/master..
     lu = log upstream/master..
     pull = pull --rebase
+[push]
+	default = matching
