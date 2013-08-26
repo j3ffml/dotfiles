@@ -11,4 +11,4 @@
     lu = log upstream/master..
     pull = pull --rebase
 [push]
-	default = matching
+	default = simple
