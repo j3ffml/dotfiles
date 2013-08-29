@@ -26,7 +26,6 @@ if [ -e "$HOME/.bash_aliases" ]; then
     . "$HOME/.bash_aliases"
 fi
 
-
 # options
 setopt correctall
 setopt autocd
@@ -141,4 +140,9 @@ build_prompt() {
   prompt_end
 }
 
-PROMPT='%{%f%b%k%}$(build_prompt) '
+PROMPT='%{%f%b%k%}$(build_prompt)$(vi_mode_prompt_info) '
+
+
+bindkey -M viins \\C-R history-incremental-search-backward
+
+
