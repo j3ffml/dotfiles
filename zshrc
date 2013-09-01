@@ -13,17 +13,18 @@ source $ZSH/oh-my-zsh.sh
 export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
 
 # command aliases
-alias ls='ls --color'
-alias ll='ls -l'
-alias la='ls -A'
-alias df='df -h'
-alias du='du -h'
-alias ack='ack-grep'
+if [[ `uname -a` == *"Darwin"* ]]; then
+  export CLICOLOR=1
+  export LSCOLORS=exgxfxdxcxegedabagaced
+  alias ls='ls -G'
+else
+  alias ls='ls --color'
+  alias ack='ack-grep'
+fi
 
-# load additional aliases
-#TODO
-if [ -e "$HOME/.bash_aliases" ]; then
-    . "$HOME/.bash_aliases"
+# load additional local settings
+if [ -e "$HOME/.bash_local" ]; then
+    . "$HOME/.bash_local"
 fi
 
 # options

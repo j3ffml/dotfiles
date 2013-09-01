@@ -1,8 +1,6 @@
 [user]
 	name = Jeff Lowdermlk
 	email = tiro.jeff.ml@gmail.com
-[core]
-	excludesfile = /home/jeff/.gitignore_global
 [color]
 	ui = true
 [alias]

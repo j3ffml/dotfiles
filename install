@@ -1,10 +1,10 @@
 #!/bin/bash
 
-# clone other stuff
-git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
-git clone git://github.com/sigurdga/gnome-terminal-colors-solarized.git
+# setup oh-my-zsh TODO test this
+wget --no-check-certificate https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh
 
-CONF_LIST=`find . -maxdepth 1 -not -name "install" -not -name ".*" -printf "%f\n"`
+#CONF_LIST=`find . -maxdepth 1 -not -name "install" -not -name ".*" -printf "%f\n"`
+CONF_LIST=`find . -maxdepth 1 -not -name "install" -not -name ".*" -exec basename {} \;`
 
 for CONF in $CONF_LIST; do
     SRC="$PWD/$CONF"
@@ -14,5 +14,13 @@ for CONF in $CONF_LIST; do
     fi
 done
 
-# move the bloody buttons back (ubuntu)
-gconftool --set --type string /apps/metacity/general/button_layout :minimize,maximize,close
+if [[ `uname -a` == *"Darwin"* ]]; then
+  #TODO install iterm2, wget iterm2 solarized colors from repo
+  wget --no-check-certificate https://raw.github.com/altercation/solarized/master/iterm2-colors-solarized/Solarized%20Dark.itermcolors
+# ubuntu customizations
+else if [[ `uname -a` == *"ubuntu"* ]]; then
+  gconftool --set --type string /apps/metacity/general/button_layout :minimize,maximize,close
+
+  # TODO just wget the necessary scripts and run them
+  git clone git://github.com/sigurdga/gnome-terminal-colors-solarized.git
+fi
