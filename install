@@ -18,9 +18,10 @@ if [[ `uname -a` == *"Darwin"* ]]; then
   #TODO install iterm2, wget iterm2 solarized colors from repo
   wget --no-check-certificate https://raw.github.com/altercation/solarized/master/iterm2-colors-solarized/Solarized%20Dark.itermcolors
 # ubuntu customizations
-else if [[ `uname -a` == *"ubuntu"* ]]; then
+elif [[ `uname -a` == *"ubuntu"* ]]; then
   gconftool --set --type string /apps/metacity/general/button_layout :minimize,maximize,close
 
   # TODO just wget the necessary scripts and run them
   git clone git://github.com/sigurdga/gnome-terminal-colors-solarized.git
 fi
+
