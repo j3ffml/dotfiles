@@ -127,3 +127,6 @@ autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 
+if filereadable(glob("~/.vimrc_local"))
+  source ~/.vimrc_local
+endif
