@@ -5,10 +5,26 @@ set nocompatible
 " =============== Pathogen Initialization ===============
 " This loads all the plugins in ~/.vim/bundle
 " Use tpope's pathogen plugin to manage all other plugins
+"
+"  runtime bundle/tpope-vim-pathogen/autoload/pathogen.vim
+"  call pathogen#helptags()
+"  call pathogen#infect()
 
-  runtime bundle/tpope-vim-pathogen/autoload/pathogen.vim
-  call pathogen#helptags()
-  call pathogen#infect()
+set rtp+=~/.vim/bundle/vundle
+call vundle#rc()
+
+Bundle 'gmarik/vundle'
+Bundle 'kien/ctrlp.vim'
+Bundle 'scrooloose/syntastic'
+Bundle 'scrooloose/nerdtree'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'Lokaltog/vim-powerline'
+
+if filereadable(expand("~/.at_work"))
+  " do nothing
+else
+  Bundle 'Valloric/YouCompleteMe'
+endif
 
 " ===================== ctrlp Config ====================
 let ctrlp_working_path_mode = 'rc'
@@ -72,9 +88,9 @@ function! ToggleIndent()
   endif
 endfunction
 
-com CI call ToggleIndent()
+com! Ci call ToggleIndent()
 
-com Trail :%s/\s\+$//g
+com! Trail :%s/\s\+$//g
 
 set autoindent
 set smartindent
@@ -84,11 +100,10 @@ set shiftwidth=2
 set softtabstop=2
 set tabstop=4
 
-filetype plugin on
-filetype indent on
+filetype plugin indent on
 
-set nowrap	   "Don't wrap lines
-set linebreak	"Wrap lines at convenient points
+set nowrap  "Don't wrap lines
+set linebreak  "Wrap lines at convenient points
 
 " ================ Folds ============================
 
@@ -98,13 +113,13 @@ set nofoldenable		"dont fold by default
 " ================ Completion =======================
 
 set wildmode=list:longest
-set wildmenu				"enable ctrl-n and ctrl-p to scroll thru matches
+set wildmenu  "enable ctrl-n and ctrl-p to scroll thru matches
 set wildignore=*.o,*.obj,*~ "stuff to ignore when tab completing
 set wildignore+=*vim/backups*
 
 " ================ Scrolling ========================
 
-set scrolloff=8		 "Start scrolling when we're 8 lines away from margins
+set scrolloff=8  "Start scrolling when we're 8 lines away from margins
 set sidescrolloff=15
 set sidescroll=1
 
@@ -112,6 +127,7 @@ set sidescroll=1
 
 "search/replace word under cursor
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
+nnoremap <Leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " set colorscheme before highlight settings
 "
@@ -127,6 +143,6 @@ autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 
-if filereadable(glob("~/.vimrc_local"))
+if filereadable(expand("~/.vimrc_local"))
   source ~/.vimrc_local
 endif

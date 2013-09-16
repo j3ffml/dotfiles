@@ -2,12 +2,11 @@
 
 # setup oh-my-zsh
 wget --no-check-certificate https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh
-if [ ! -e "$HOME/.zshrc" ]; then
-  rm "$HOME/.zshrc"
+if [ -e "$HOME/.zshrc" ]; then
+  mv "$HOME/.zshrc" "$HOME/.zshrc_old"
 fi
 
-#CONF_LIST=`find . -maxdepth 1 -not -name "install" -not -name ".*" -printf "%f\n"`
-CONF_LIST=`find . -maxdepth 1 -not -name "install" -not -name ".*" -exec basename {} \;`
+CONF_LIST=`find . -maxdepth 1 -not -name "install" -not -name ".*" -not -name "util" -not -name "README.md" -exec basename {} \;`
 
 for CONF in $CONF_LIST; do
     SRC="$PWD/$CONF"
@@ -16,6 +15,9 @@ for CONF in $CONF_LIST; do
         ln -sv $SRC $DEST
     fi
 done
+
+# clone Vundle (will handle all other vim plugins)
+git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 
 if [[ `uname -a` == *"Darwin"* ]]; then
   #TODO install iterm2, wget iterm2 solarized colors from repo
