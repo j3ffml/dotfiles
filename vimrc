@@ -118,12 +118,18 @@ set sidescroll=1
 
 " ================ Miscellaneous ==============
 
+"case insensitive search
+set ignorecase
+set smartcase
+
 "search/replace word under cursor
-nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
+nnoremap <Leader>s :s/\<<C-r><C-w>\>/
+"search/replace word under cursor whole file
+nnoremap <Leader>S :%s/\<<C-r><C-w>\>/
+" YCM go-to definition
 nnoremap <Leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " set colorscheme before highlight settings
-"
 set t_Co=16
 set background=dark
 colorscheme solarized
