@@ -1,23 +1,33 @@
 " Use Vim settings, rather then Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
+filetype off
 
 " Use Vundle for all vim plugins
-set rtp+=~/.vim/bundle/vundle
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-Bundle 'gmarik/vundle'
-Bundle 'kien/ctrlp.vim'
-Bundle 'scrooloose/syntastic'
-Bundle 'scrooloose/nerdtree'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'Lokaltog/vim-powerline'
+" Let Vundle manage itself.
+Plugin 'gmarik/Vundle.vim'
 
-if filereadable(expand("~/.at_work"))
-  " do nothing
-else
-  Bundle 'Valloric/YouCompleteMe'
+" Plugins
+Plugin 'kien/ctrlp.vim'
+Plugin 'scrooloose/syntastic'
+Plugin 'scrooloose/nerdtree'
+Plugin 'Lokaltog/vim-powerline'
+Plugin 'fatih/vim-go'
+
+" Only load public version if not at work
+if !filereadable(expand('~/.at_work'))
+  " Non-Google only
+  Plugin 'Valloric/YouCompleteMe'
 endif
+
+" Color schemes
+Plugin 'altercation/vim-colors-solarized'
+
+call vundle#end()
+filetype plugin on
 
 " ===================== ctrlp Config ====================
 let ctrlp_working_path_mode = 'rc'
@@ -142,6 +152,7 @@ autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 
+" Load custom local settings
 if filereadable(expand("~/.vimrc_local"))
   source ~/.vimrc_local
 endif
