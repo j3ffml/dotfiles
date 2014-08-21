@@ -27,7 +27,6 @@ endif
 Plugin 'altercation/vim-colors-solarized'
 
 call vundle#end()
-filetype plugin on
 
 " ===================== ctrlp Config ====================
 let ctrlp_working_path_mode = 'rc'
