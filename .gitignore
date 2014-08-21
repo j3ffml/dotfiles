@@ -1,0 +1,9 @@
+# vim stuff#
+############
+vim/.netrwhist
+vim/bundle/*
+vim/data
+
+# external deps #
+#################
+thirdparty/*

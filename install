@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # setup oh-my-zsh
-wget --no-check-certificate https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh
+wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh
 if [ -e "$HOME/.zshrc" ]; then
   mv "$HOME/.zshrc" "$HOME/.zshrc_old"
 fi
@@ -21,13 +21,13 @@ git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 
 if [[ `uname -a` == *"Darwin"* ]]; then
   #TODO install iterm2, wget iterm2 solarized colors from repo
-  wget --no-check-certificate https://raw.github.com/altercation/solarized/master/iterm2-colors-solarized/Solarized%20Dark.itermcolors
+  wget https://raw.github.com/altercation/solarized/master/iterm2-colors-solarized/Solarized%20Dark.itermcolors
 # ubuntu customizations
 elif [[ `uname -a` == *"ubuntu"* || `uname -a` == *"Linux"* ]]; then
   gconftool --set --type string /apps/metacity/general/button_layout \
     :minimize,maximize,close
   #TODO test this
-  git clone git://github.com/sigurdga/gnome-terminal-colors-solarized.git \
-    && sh gnome-terminal-colors-solarized/set_dark.sh
+  git clone git://github.com/Anthony25/gnome-terminal-colors-solarized.git thirdparty/gnome-terminal-colors-solarized\
+    && sh thirdparty/gnome-terminal-colors-solarized/set_dark.sh
 fi
 
