@@ -12,6 +12,7 @@ source $ZSH/oh-my-zsh.sh
 # PATH customization
 export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/go/bin
 export GOPATH=$HOME/go
+export GOPATH=$GOPATH:$GOPATH/bin
 export PATH=$PATH:$GOPATH
 
 # command aliases
