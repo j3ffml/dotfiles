@@ -10,10 +10,10 @@ plugins=(git autojump python vi-mode)
 source $ZSH/oh-my-zsh.sh
 
 # PATH customization
-export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/go/bin
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/go/bin
 export GOPATH=$HOME/go
-export GOPATH=$GOPATH:$GOPATH/bin
-export PATH=$PATH:$GOPATH
+export GOPATH=$GOPATH
+export PATH=$PATH:$GOPATH:$GOPATH/bin
 
 # command aliases
 if [[ `uname -a` == *"Darwin"* ]]; then
@@ -79,6 +79,7 @@ bindkey "\e[A" history-beginning-search-backward
 bindkey "\e[B" history-beginning-search-forward
 
 # load additional local settings
-if [ -e "$HOME/.bash_local" ]; then
-    . "$HOME/.bash_local"
+if [[ -e "$HOME/.zsh_local" ]]; then
+    . "$HOME/.zsh_local"
 fi
+

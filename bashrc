@@ -45,5 +45,3 @@ fi
 if [ -e "$HOME/.bash_local" ]; then
     . "$HOME/.bash_local"
 fi
-
-

@@ -16,6 +16,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Lokaltog/vim-powerline'
 Plugin 'fatih/vim-go'
+Plugin 'rking/ag.vim'
 
 " Only load public version if not at work
 if !filereadable(expand('~/.at_work'))
