@@ -4,7 +4,7 @@ set nocompatible
 filetype off
 
 " Use Vundle for all vim plugins
-set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=~/.vim/bundle/vundle
 call vundle#begin()
 
 " Let Vundle manage itself.
@@ -21,7 +21,8 @@ Plugin 'rking/ag.vim'
 " Only load public version if not at work
 if !filereadable(expand('~/.at_work'))
   " Non-Google only
-  Plugin 'Valloric/YouCompleteMe'
+  " TODO get this working
+  " Plugin 'Valloric/YouCompleteMe'
 endif
 
 " Color schemes
