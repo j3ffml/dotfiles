@@ -45,3 +45,9 @@ fi
 if [ -e "$HOME/.bash_local" ]; then
     . "$HOME/.bash_local"
 fi
+
+# The next line enables bash completion for gcloud.
+source '/usr/local/google/home/jeffml/google-cloud-sdk/completion.bash.inc'
+
+# The next line updates PATH for the Google Cloud SDK.
+source '/usr/local/google/home/jeffml/google-cloud-sdk/path.bash.inc'

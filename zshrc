@@ -10,7 +10,7 @@ plugins=(git autojump python vi-mode)
 source $ZSH/oh-my-zsh.sh
 
 # PATH customization
-export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/go/bin
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/local/go/bin:/usr/sbin:/usr/bin:/sbin:/bin:
 export GOPATH=$HOME/go
 export GOPATH=$GOPATH
 export PATH=$PATH:$GOPATH:$GOPATH/bin

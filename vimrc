@@ -153,6 +153,11 @@ autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 
+" Open NERDTree
+autocmd VimEnter * NERDTree
+autocmd BufEnter * NERDTree
+autocmd VimEnter * wincmd w
+
 " Load custom local settings
 if filereadable(expand("~/.vimrc_local"))
   source ~/.vimrc_local
