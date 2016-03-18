@@ -4,11 +4,11 @@ set nocompatible
 filetype off
 
 " Use Vundle for all vim plugins
-set rtp+=~/.vim/bundle/vundle
+set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " Let Vundle manage itself.
-Plugin 'gmarik/Vundle.vim'
+Plugin 'VundleVim/Vundle.vim'
 
 " Plugins
 Plugin 'kien/ctrlp.vim'
@@ -155,7 +155,6 @@ autocmd BufWinLeave * call clearmatches()
 
 " Open NERDTree
 autocmd VimEnter * NERDTree
-autocmd BufEnter * NERDTree
 autocmd VimEnter * wincmd w
 
 " Load custom local settings

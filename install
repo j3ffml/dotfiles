@@ -17,7 +17,7 @@ for CONF in $CONF_LIST; do
 done
 
 # clone Vundle.
-git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+git clone https://github.com/VundleVim/vundle.git ~/.vim/bundle/Vundle.vim
 echo "run :VundleInstall from within vim to install bundles"
 
 # get some powerline fonts
