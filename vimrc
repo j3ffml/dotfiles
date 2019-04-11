@@ -17,6 +17,9 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'Lokaltog/vim-powerline'
 Plugin 'fatih/vim-go'
 Plugin 'rking/ag.vim'
+" Plugin 'google/vim-maktaba'
+" Plugin 'google/vim-codefmt'
+" Plugin 'google/vim-glaive'
 
 " Only load public version if not at work
 if !filereadable(expand('~/.at_work'))
@@ -58,6 +61,9 @@ set hidden
 
 "turn on syntax highlighting
 syntax enable
+
+" don't build go binaries on save
+let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
 
 " ================ Search Settings  =================
 

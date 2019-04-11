@@ -10,3 +10,5 @@
     pull = pull --rebase
 [push]
 	default = simple
+[diff]
+	renamelimit=2092
