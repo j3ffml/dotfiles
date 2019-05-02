@@ -2,7 +2,7 @@
 ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
-# ZSH_THEME="agnoster"
+ZSH_THEME="agnoster"
 export EDITOR=/usr/bin/vim
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
