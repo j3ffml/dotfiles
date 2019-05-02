@@ -7,6 +7,8 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+set encoding=utf-8
+
 " Let Vundle manage itself.
 Plugin 'VundleVim/Vundle.vim'
 

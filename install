@@ -17,11 +17,11 @@ for CONF in $CONF_LIST; do
 done
 
 # clone Vundle.
-git clone https://github.com/VundleVim/vundle.git ~/.vim/bundle/Vundle.vim
+git clone git@github.com:VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 echo "run :VundleInstall from within vim to install bundles"
 
 # get some powerline fonts
-git clone https://github.com/powerline/fonts.git
+git clone git@github.com:powerline/fonts.git
 
 if [[ `uname -a` == *"Darwin"* ]]; then
   #TODO install iterm2, wget iterm2 solarized colors from repo
