@@ -6,11 +6,7 @@ Infrequently updated collection of my own dotfiles and configs.
 Installation
 ------------
 ```
-$ bash install
+$ ./install.sh
 ```
-Then in vim,
-```
-:PluginInstall
-```
-To install vim plugins with Vundle. It's likely you will need to install one of
-the fonts in util/fonts to display prompt and vim-powerline correctly.
+Then any follow up instructions printed. Mac installation has extra manual steps
+that I can't be bothered to automate.
