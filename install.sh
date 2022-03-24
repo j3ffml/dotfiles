@@ -1,39 +1,39 @@
 #!/bin/bash
 
 # setup oh-my-zsh
-wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 if [ -e "$HOME/.zshrc" ]; then
   mv "$HOME/.zshrc" "$HOME/.zshrc_old"
 fi
 
-CONF_LIST=`ackrc  bashrc  screenrc  vim  vimrc  zsh.prompt  zshrc`
+CONF_LIST="ackrc  bashrc  screenrc  vim  vimrc  zsh.prompt  zshrc"
 for CONF in $CONF_LIST; do
     SRC="$PWD/$CONF"
     DEST="$HOME/.$CONF"
-    if [ ! -e $DEST ]; then
-        ln -sv $SRC $DEST
+    if [[ -f "$DEST" ]]; then
+	mv $DEST $DEST_old
     fi
+    ln -sv $SRC $DEST
 done
 # i3config doesn't follow above pattern
 ln -sv "$PWD/i3config" "$HOME/.config/i3/config"
-
 
 # clone Vundle.
 git clone git@github.com:VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 echo "run :VundleInstall from within vim to install bundles"
 
-# install some powerline fonts. Menlo for Powerline preferred
-mkdir -p $HOME/.local/share/fonts/
-cp util/fonts/* $HOME/.local/share/fonts/
-
 if [[ `uname -a` == *"Darwin"* ]]; then
-  #TODO install iterm2, wget iterm2 solarized colors from repo
-  wget https://raw.github.com/altercation/solarized/master/iterm2-colors-solarized/Solarized%20Dark.itermcolors
+  echo "Install iterm2 from iterm2.com"
+  echo "Install fonts at $PWD/util/fonts"
 # ubuntu customizations
 elif [[ `uname -a` == *"ubuntu"* || `uname -a` == *"Linux"* ]]; then
+  # install some powerline fonts. Menlo for Powerline preferred
+  mkdir -p $HOME/.local/share/fonts/
+  cp util/fonts/* $HOME/.local/share/fonts/
+
   gconftool --set --type string /apps/metacity/general/button_layout \
     :minimize,maximize,close
-  #TODO test this
+  #TODO test this next install
   git clone git://github.com/Anthony25/gnome-terminal-colors-solarized.git thirdparty/gnome-terminal-colors-solarized\
     && sh thirdparty/gnome-terminal-colors-solarized/set_dark.sh
 elif [[ `uname -a` == *"Cygwin"* ]]; then
