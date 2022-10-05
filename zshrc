@@ -6,7 +6,7 @@ ZSH_THEME="agnoster"
 export EDITOR=/usr/bin/vim
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-plugins=(git autojump python vi-mode)
+plugins=(git vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -23,6 +23,7 @@ if [[ `uname -a` == *"Darwin"* ]]; then
   alias ls='ls -G'
 else
   alias ls='ls --color'
+  alias ll='ls -la'
   alias ack='ack-grep'
 fi
 
@@ -84,12 +85,8 @@ if [[ -e "$HOME/.zsh_local" ]]; then
     . "$HOME/.zsh_local"
 fi
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f /usr/local/google/home/jeffml/google-cloud-sdk/path.zsh.inc ]; then
-  source '/usr/local/google/home/jeffml/google-cloud-sdk/path.zsh.inc'
+# load additional local settings
+if [[ -e "$HOME/.bashrc" ]]; then
+    . "$HOME/.bashrc"
 fi
 
-# The next line enables shell command completion for gcloud.
-if [ -f /usr/local/google/home/jeffml/google-cloud-sdk/completion.zsh.inc ]; then
-  source '/usr/local/google/home/jeffml/google-cloud-sdk/completion.zsh.inc'
-fi

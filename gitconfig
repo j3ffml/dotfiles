@@ -1,6 +1,6 @@
 [user]
-	name = Jeff Lowdermilk
-	email = jeffml@google.com
+	name = Jeff Dempsey
+	email = jdempsey@latourtrading.com
 [color]
 	ui = true
 [alias]
@@ -8,7 +8,21 @@
     lo = log origin/master..
     lu = log upstream/master..
     pull = pull --rebase
+	graph = log --graph --oneline --decorate
+	semver = !echo $(git rev-list --count HEAD)-g$(git rev-parse HEAD | cut -b -10)$(test $(git status --porcelain 2>/dev/null| egrep \"^(M| M)\" | wc -l) != 0 && echo \"-dirty\")
+	out = log @{u}..
+	in = "!f() { git fetch origin && git log ..@{u}; }; f"
 [push]
 	default = simple
 [diff]
 	renamelimit=2092
+[core]
+  editor = vim
+
+[rebase]
+	autostash = true
+[branch]
+	autosetuprebase = always
+	autosetupmerge = always
+[core]
+    editor = vim

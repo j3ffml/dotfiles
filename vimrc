@@ -19,16 +19,6 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'Lokaltog/vim-powerline'
 Plugin 'fatih/vim-go'
 Plugin 'rking/ag.vim'
-" Plugin 'google/vim-maktaba'
-" Plugin 'google/vim-codefmt'
-" Plugin 'google/vim-glaive'
-
-" Only load public version if not at work
-if !filereadable(expand('~/.at_work'))
-  " Non-Google only
-  " TODO get this working
-  " Plugin 'Valloric/YouCompleteMe'
-endif
 
 " Color schemes
 Plugin 'altercation/vim-colors-solarized'
@@ -149,7 +139,8 @@ nnoremap <Leader>S :%s/\<<C-r><C-w>\>/
 nnoremap <Leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " set colorscheme before highlight settings
-set t_Co=16
+set t_Co=256
+:let g:solarized_termcolors=256
 set background=dark
 colorscheme solarized
 
